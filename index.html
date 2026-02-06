@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="CSS/style.css" />
 </head>
-<body>
-    <h1>Todo List</h1>
-    <br>
+
+<body class="bg-green-950 min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-2xl bg-gray-200 rounded-xl shadow-md p-6">
+        <header class="mb-4">
+            <h1 class="text-2xl font-bold text-black-300 text-center">Todo List</h1>
+            </header>
+
+        <section class="mb-6">
+            <form id="todo-form" class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                <input id="todo-input" type="text" placeholder="Add a todo ..." class="sm:col-span-2 px-3 py-2  border border-black-300 rounded" />
+                <input id="date-input" type="date" class="px-3 py-2 border border-black-300 rounded" />
+                <button id="add-btn" type="submit" class="px-3 py-1 bg-blue-600 text-white border border-black-900 rounded hover:bg-blue-700 text-lg font-bold" >+</button>
+                <div class="sm:col-span-4 flex gap-2">
+                    <select id="filter-select" class="px-1 py-2 border border-black-300 rounded">
+                        <option value="filter" class="font-bold">FILTER</option>
+                        <option value="completed">Completed</option>
+                        <option value="incomplete">Incomplete</option>
+                    </select>
+                    <button id="clear-all" type="button" class="ml-auto px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">DELETE All</button>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <table id="todo-list" class="w-full ">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="px-4 py-2 text-left">Task</th>
+                        <th class="px-4 py-2 text-left">Due Date</th>
+                        <th class="px-4 py-2 text-left">Status</th>
+                        <th class="px-4 py-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="todo-body">
+                </tbody>
+            </table>
+            <p id="empty-msg" class="text-center text-gray-400 mt-4">No task found</p>
+        </section>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
